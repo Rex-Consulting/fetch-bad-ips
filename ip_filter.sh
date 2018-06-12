@@ -22,7 +22,7 @@
 oldIFS=$IFS
 IFS=' '
 
-RESULT=`/home/jd/scripts/rex_agg_field_2.py --doctype 'syslog' --fieldname '((alert' --fieldvalue '"Did not receive identification string") OR (alert:"Timeout before authentication") OR (alert:"Bad protocol version identification") OR (alert:"Invalid user") OR (alert:"maximum authentication attempts") OR (alert:"Too many authentication failures")) AND (host:$3)' --lookback 10m --timeout 60 --aggfield 'ip_address' --display --threshold 3 --justbuckets --donotshow --elasticip $1 --elasticport $2` 
+RESULT=`~/rex_agg_field_2.py --doctype 'syslog' --fieldname '((alert' --fieldvalue '"Did not receive identification string") OR (alert:"Timeout before authentication") OR (alert:"Bad protocol version identification") OR (alert:"Invalid user") OR (alert:"maximum authentication attempts") OR (alert:"Too many authentication failures")) AND (host:$3)' --lookback 10m --timeout 60 --aggfield 'ip_address' --display --threshold 3 --justbuckets --donotshow --elasticip $1 --elasticport $2` 
 
 parsed_result=`echo $RESULT | tr "\n" " "`
 for ip in $parsed_result
